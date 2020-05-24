@@ -1,0 +1,19 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/new_chatapp
+
+hooks:
+  BeforeInstall:
+    - location: Scripts/BeforeInstall.sh
+      timeout: 300
+      runas: root
+  AfterInstall:
+    - location: Scripts/installScripts.sh 
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: Scripts/startApplication.sh
+      timeout: 300
+      runas: root
